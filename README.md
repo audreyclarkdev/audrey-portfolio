@@ -1,5 +1,7 @@
 # Audrey Clark — Developer Portfolio
 
+![Portfolio Preview](public/portfolio-screenshot.png)
+
 A single-page portfolio built with React and Vite, showcasing my journey from humanitarian work and QA engineering into full-stack software development.
 
 ## About
