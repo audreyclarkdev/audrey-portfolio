@@ -25,4 +25,4 @@ This portfolio was designed and built from scratch as a hands-on project while s
 
 ## Live Site
 
-[audreyclark.dev](https://audreyclark.dev) ← swap in your real domain once it's live
+[audreyclark.dev](https://audreyclark.dev) 
