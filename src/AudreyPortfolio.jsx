@@ -17,9 +17,6 @@ const SKILLS = [
   { label: "Manual QA Testing", color: "#FAECE7", text: "#712B13" },
   { label: "Test Planning", color: "#E1F5EE", text: "#085041" },
   { label: "Agile / Scrum", color: "#EEEDFE", text: "#3C3489" },
-  { label: "UI/UX Design", color: "#FAECE7", text: "#993C1D" },
-  { label: "SEO", color: "#E6F1FB", text: "#0C447C" },
-  { label: "QuickBooks", color: "#1e2030", text: "#9FE1CB" },
 ];
 
 const EXPERIENCE = [
