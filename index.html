@@ -2,12 +2,73 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/icons8-heart-favicon.png" />
-    <!-- <a target="_blank" href="https://icons8.com/icon/10287/favorite">Favorite</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Audrey Clark's Portfolio</title>
+    <link rel="icon" type="image/png" href="/icons8-heart-favicon.png" />
+    <!-- <a target="_blank" href="https://icons8.com/icon/10287/favorite">Favorite</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
+
+    <title>Audrey Clark — Full-Stack Software Developer</title>
+    <meta
+      name="description"
+      content="Audrey Clark is a full-stack software developer and former QA engineering lead building with React, Next.js, Node.js, and Express. View projects, experience, and contact info." />
+    <meta name="author" content="Audrey Clark" />
+    <meta name="theme-color" content="#0d0e14" />
+
+    <!-- Pick light or dark mode before the page draws: saved choice first, then the device setting -->
+    <script>
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (e) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <link rel="canonical" href="https://audreyclark.dev/" />
+
+    <!-- Link previews (LinkedIn, Slack, Facebook, iMessage) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://audreyclark.dev/" />
+    <meta property="og:site_name" content="Audrey Clark" />
+    <meta property="og:title" content="Audrey Clark — Full-Stack Software Developer" />
+    <meta
+      property="og:description"
+      content="Full-stack developer and former QA engineering lead. React, Next.js, Node.js, and a background in global humanitarian work." />
+    <meta property="og:image" content="https://audreyclark.dev/portfolio-screenshot.png" />
+    <meta property="og:image:alt" content="Preview of Audrey Clark's portfolio homepage" />
+
+    <!-- Link previews (X / Twitter) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Audrey Clark — Full-Stack Software Developer" />
+    <meta
+      name="twitter:description"
+      content="Full-stack developer and former QA engineering lead. React, Next.js, Node.js, and a background in global humanitarian work." />
+    <meta name="twitter:image" content="https://audreyclark.dev/portfolio-screenshot.png" />
+
+    <!-- Tells search engines who this site is about -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Audrey Clark",
+        "url": "https://audreyclark.dev/",
+        "jobTitle": "Full-Stack Software Developer",
+        "sameAs": [
+          "https://github.com/audreyclarkdev",
+          "https://linkedin.com/in/audrey-clarkdev"
+        ],
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "Austin Community College" },
+          { "@type": "CollegeOrUniversity", "name": "William Jessup University" }
+        ],
+        "knowsAbout": ["JavaScript", "React", "Next.js", "Node.js", "Express.js", "SQL", "MongoDB", "Quality Assurance"]
+      }
+    </script>
   </head>
   <body>
+    <noscript>This site needs JavaScript to run. You can reach Audrey Clark at audreyclarkdev@gmail.com.</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
