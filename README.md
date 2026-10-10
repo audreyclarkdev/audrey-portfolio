@@ -52,6 +52,6 @@ Then open the local URL shown in the terminal (usually http://localhost:5173).
 
 ## Contact
 
-- Portfolio: [audreyclark.dev](https://audreyclark.dev)
 - LinkedIn: [linkedin.com/in/audrey-clarkdev](https://linkedin.com/in/audrey-clarkdev)
+- Email: [audreyclarkdev@gmail.com](mailto:audreyclarkdev@gmail.com)
 - GitHub: [github.com/audreyclarkdev](https://github.com/audreyclarkdev)
