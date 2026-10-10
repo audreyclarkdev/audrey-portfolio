@@ -720,18 +720,37 @@ export default function Portfolio() {
                 label: "LinkedIn",
                 url: "https://www.linkedin.com/in/audrey-clark-dev",
               },
-              { label: "Email", url: `mailto:${EMAIL}` },
-            ].map((l) => (
-              <a
-                key={l.label}
-                href={l.url}
-                target="_blank"
-                rel="noreferrer"
-                className="social-link">
-                {l.label}
-              </a>
-            ))}
+              { label: "Email", url: `mailto:${EMAIL}`, hoverLabel: EMAIL },
+            ].map((l) =>
+              l.hoverLabel ? (
+                // Shows the address on hover or keyboard focus, so visitors
+                // without an email app can still copy it
+                <a
+                  key={l.label}
+                  href={l.url}
+                  aria-label={`${l.label}: ${l.hoverLabel}`}
+                  className="social-link">
+                  <span className="social-label" aria-hidden="true">
+                    {l.label}
+                  </span>
+                  <span className="social-hover-label" aria-hidden="true">
+                    {l.hoverLabel}
+                  </span>
+                </a>
+              ) : (
+                <a
+                  key={l.label}
+                  href={l.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-link">
+                  {l.label}
+                </a>
+              ),
+            )}
           </div>
+          {/* Phones and tablets can't hover, so show the address there */}
+          <p className="contact-email">{EMAIL}</p>
         </section>
       </main>
 

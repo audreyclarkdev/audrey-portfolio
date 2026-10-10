@@ -749,6 +749,43 @@ section {
   color: var(--accent-strong);
 }
 
+.social-hover-label {
+  display: none;
+}
+
+.social-link:focus-visible .social-label {
+  display: none;
+}
+
+.social-link:focus-visible .social-hover-label {
+  display: inline;
+}
+
+/* Mouse and trackpad users: swap the label on hover */
+@media (hover: hover) {
+  .social-link:hover .social-label {
+    display: none;
+  }
+
+  .social-link:hover .social-hover-label {
+    display: inline;
+  }
+}
+
+/* Touchscreens: show the address as plain text under the links instead */
+.contact-email {
+  display: none;
+  margin-top: 16px;
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+@media (hover: none) {
+  .contact-email {
+    display: block;
+  }
+}
+
 /* ── FOOTER ── */
 .footer {
   border-top: 0.5px solid var(--border);
