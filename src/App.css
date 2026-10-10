@@ -234,20 +234,21 @@ section {
   border: none;
   cursor: pointer;
   font-family: inherit;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border-radius: 9px;
 }
 
-.logo-ac {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--accent-strong);
-  letter-spacing: -0.3px;
+.logo-mark {
+  display: block;
+  width: 34px;
+  height: 34px;
+  transition: transform 0.2s ease;
 }
 
-.logo-dev {
-  font-size: 18px;
-  font-weight: 300;
-  color: var(--text-muted);
-  margin-left: 2px;
+.logo-btn:hover .logo-mark {
+  transform: translateY(-1px) scale(1.05);
 }
 
 .desktop-nav {

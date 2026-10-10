@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512">
+  <title>Audrey Clark — mark (one colour)</title>
+  <g transform="translate(-1.5 0)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5">
+    <path d="M13 45 L23.5 19 L34 45"/>
+    <path d="M54.42 24.58 A10.5 10.5 0 1 0 54.42 39.42"/>
+  </g>
+  <circle cx="22" cy="37" r="3" fill="currentColor"/>
+</svg>

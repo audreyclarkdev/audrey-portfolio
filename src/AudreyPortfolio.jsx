@@ -257,6 +257,16 @@ export default function Portfolio() {
     setMenuOpen(false);
   };
 
+  const scrollToTop = () => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    // Move keyboard and screen reader focus to the first section too
+    sectionRefs.current.About?.focus({ preventScroll: true });
+    setMenuOpen(false);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -306,9 +316,14 @@ export default function Portfolio() {
           <button
             className="logo-btn"
             aria-label="Audrey Clark, back to top"
-            onClick={() => scrollTo("About")}>
-            <span className="logo-ac">AC</span>
-            <span className="logo-dev">.dev</span>
+            onClick={scrollToTop}>
+            <img
+              className="logo-mark"
+              src="/ac-mark.svg"
+              alt=""
+              width="34"
+              height="34"
+            />
           </button>
           <nav className="desktop-nav" aria-label="Main">
             {navLinkButtons}
