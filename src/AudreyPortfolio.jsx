@@ -718,7 +718,7 @@ export default function Portfolio() {
               { label: "GitHub", url: "https://github.com/audreyclarkdev" },
               {
                 label: "LinkedIn",
-                url: "https://linkedin.com/in/audrey-clarkdev",
+                url: "https://www.linkedin.com/in/audrey-clark-dev",
               },
               { label: "Email", url: `mailto:${EMAIL}` },
             ].map((l) => (
