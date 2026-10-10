@@ -327,6 +327,14 @@ html {
   margin-left: 10px;
 }
 
+.exp-company a {
+  text-decoration: none;
+}
+
+.exp-company a:hover {
+  text-decoration: underline;
+}
+
 .exp-period {
   font-size: 12px;
   color: #555;

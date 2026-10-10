@@ -1,4 +1,8 @@
-# Audrey Clark — Developer Portfolio
+# Audrey Clark — Software Engineer Portfolio
+
+## Live Site
+
+[audreyclark.dev](https://audreyclark.dev) 
 
 ![Portfolio Preview](public/portfolio-screenshot.png)
 
@@ -23,6 +27,3 @@ This portfolio was designed and built from scratch as a hands-on project while s
 - Smooth scroll between sections
 - Live project links to GitHub repos
 
-## Live Site
-
-[audreyclark.dev](https://audreyclark.dev) 
