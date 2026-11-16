@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const EMAIL = "audreyclarkdev@gmail.com";
 
@@ -134,8 +134,8 @@ const PROJECTS = [
     ],
     repo: "https://github.com/audreyclarkdev/dogdex",
     live: "https://dogdex.live/",
-    image: "",
-    imageAlt: "",
+    image: "project-assets/Signed-In-Home.png",
+    imageAlt: "The home page of DogDex if the user is signed in",
     accent: "#534AB7",
   },
   {
@@ -144,8 +144,8 @@ const PROJECTS = [
     tech: ["React", "React Hooks", "CSS", "Netlify"],
     repo: "https://github.com/audreyclarkdev/Giphy-App/tree/main",
     live: "https://audrey-giphy-app.netlify.app/",
-    image: "",
-    imageAlt: "",
+    image: "project-assets/trending-home-higher-quality.gif",
+    imageAlt: "The home page shows the 20 current top trending GIFs upon load",
     accent: "#1B5FA8",
   },
   {
@@ -154,7 +154,7 @@ const PROJECTS = [
     tech: ["JavaScript", "RESTful API", "GitHub Pages"],
     repo: "https://github.com/audreyclarkdev/dog-facts",
     live: "https://audreyclarkdev.github.io/dog-facts/",
-    image: "",
+    image: "project-assets/DogFactsAPI.png",
     imageAlt: "",
     accent: "#0B7377",
   },
