@@ -18,7 +18,9 @@
   --tag-bg: rgba(83, 74, 183, 0.15);
   --hover-bg: rgba(83, 74, 183, 0.15);
   --success: #5DCAA5;
-  --shimmer: linear-gradient(90deg, #CFC9FF 0%, #D85A30 40%, #5DCAA5 70%, #CFC9FF 100%);
+  --blue: #74B4F7;
+  --teal: #4FD1D1;
+  --shimmer: linear-gradient(90deg, #CFC9FF 0%, #74B4F7 22%, #4FD1D1 44%, #D85A30 66%, #5DCAA5 84%, #CFC9FF 100%);
   /* Per-item accent colors (--c) are lightened on dark backgrounds */
   --ink-mix: #fff;
   --ink-amount: 50%;
@@ -40,7 +42,9 @@
   --tag-bg: rgba(83, 74, 183, 0.1);
   --hover-bg: rgba(83, 74, 183, 0.08);
   --success: #137a5a;
-  --shimmer: linear-gradient(90deg, #534AB7 0%, #B5441F 40%, #157a5a 70%, #534AB7 100%);
+  --blue: #1B5FA8;
+  --teal: #0B7377;
+  --shimmer: linear-gradient(90deg, #534AB7 0%, #1B5FA8 22%, #0B7377 44%, #B5441F 66%, #157a5a 84%, #534AB7 100%);
   /* ...and darkened on light backgrounds */
   --ink-mix: #000;
   --ink-amount: 25%;
@@ -122,8 +126,9 @@ section {
   .grad-btn:hover,
   .outline-btn:hover,
   .card:hover,
-  .proj-card:hover,
-  .proj-card:focus-visible,
+  .proj-row:hover,
+  .proj-row:focus-within,
+  .proj-btn:hover,
   .edu-card:hover,
   .skill-chip:hover {
     transform: none;
@@ -372,8 +377,8 @@ section {
 
 .divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #534AB7 30%, #D85A30 70%, transparent);
-  margin: 64px auto;
+  background: linear-gradient(90deg, transparent, #534AB7 20%, #2F80D8 40%, #14A3A8 60%, #D85A30 80%, transparent);
+  margin: 35px auto;
   max-width: 1100px;
   opacity: 0.6;
 }
@@ -550,33 +555,62 @@ section {
 
 /* ── PROJECTS ── */
 .proj-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-
-.proj-card {
-  background: var(--surface);
-  border: 0.5px solid var(--border);
-  border-radius: 14px;
-  padding: 22px 24px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  transition: border-color 0.2s, transform 0.2s;
-  text-decoration: none;
+  gap: 28px;
 }
 
-.proj-card:hover,
-.proj-card:focus-visible {
+/* One project per row: card and image side by side, equal size */
+.proj-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 0.5px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.proj-row:hover,
+.proj-row:focus-within {
   border-color: var(--card-accent);
   transform: translateY(-3px);
 }
 
-.proj-header {
+/* Every other row swaps sides, so the image is on the left */
+.proj-row.flipped .proj-media {
+  order: -1;
+}
+
+.proj-media {
+  position: relative;
+  min-height: 300px;
+  background: color-mix(in srgb, var(--card-accent), var(--surface) 88%);
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The image fills the container without changing the row's height */
+.proj-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.proj-media-empty {
+  font-size: 14px;
+  color: var(--text-subtle);
+}
+
+.proj-card {
+  background: var(--surface);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .proj-name {
@@ -586,10 +620,45 @@ section {
   line-height: 1.4;
 }
 
-.proj-arrow {
-  font-size: 20px;
-  color: var(--text-subtle);
-  margin-left: 8px;
+/* Repo and live site buttons, pinned to the bottom of each card */
+.proj-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.proj-btn {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 99px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: background 0.2s, opacity 0.2s, transform 0.15s;
+}
+
+.proj-btn:hover {
+  transform: translateY(-1px);
+}
+
+.proj-btn-repo {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.proj-btn-repo:hover {
+  background: color-mix(in srgb, var(--teal), transparent 86%);
+}
+
+.proj-btn-live {
+  background: linear-gradient(135deg, #1B66B8 0%, #0B7A7E 100%);
+  color: #fff;
+}
+
+.proj-btn-live:hover {
+  opacity: 0.88;
 }
 
 .proj-desc {
@@ -622,8 +691,28 @@ section {
 /* ── EDUCATION ── */
 .edu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* Bootcamps on the left, degrees on the right, each stacked */
+.edu-column {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
+}
+
+.edu-group-title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Cards in a column share the available height evenly */
+.edu-column .edu-card {
+  flex: 1;
 }
 
 .edu-card {
@@ -652,6 +741,12 @@ section {
 }
 
 .edu-field {
+  font-size: 14px;
+  color: var(--text-subtle);
+  margin-bottom: 6px;
+}
+
+.edu-honor {
   font-size: 14px;
   color: var(--text-subtle);
   margin-bottom: 6px;
@@ -820,8 +915,15 @@ section {
     grid-template-columns: 1fr 1fr;
   }
 
-  .proj-grid {
+  /* Stack each project, image on top */
+  .proj-row {
     grid-template-columns: 1fr;
+  }
+
+  .proj-row .proj-media {
+    order: -1;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
   }
 
   .edu-grid {

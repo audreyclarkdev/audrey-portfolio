@@ -30,15 +30,17 @@ const SKILLS = [
   "React.js",
   "Next.js",
   "Node.js",
+  "Express.js",
   "SQL",
   "MongoDB",
-  "Express.js",
+  "PostgreSQL",
   "HTML & CSS",
   "Tailwind CSS",
   "Bootstrap",
   "jQuery",
   "WordPress",
   "Git & GitHub",
+  "Jest",
   "Manual QA Testing",
   "Test Planning",
   "Agile / Scrum",
@@ -46,26 +48,15 @@ const SKILLS = [
 
 const EXPERIENCE = [
   {
-    role: "Software Engineer (Freelance)",
+    role: "Software Engineer",
     company: "Blinkk.io LLC",
     period: "Nov 2024 - Present",
     color: "#534AB7",
     dot: "#AFA9EC",
     bullets: [
-      "Designed and developed a multi-page WordPress book review blog (romanceloverblog.com) for a paid client",
-      "Implemented marketing strategy and brand identity for e-commerce stores",
-    ],
-  },
-  {
-    role: "Project Manager & Support Specialist",
-    company: "Blinkk.io LLC",
-    period: "Feb 2025 - Dec 2025",
-    color: "#D85A30",
-    dot: "#F0997B",
-    bullets: [
-      "Developed a company landing website using HTML, CSS, JavaScript and UI/UX best practices",
-      "Led weekly strategic planning meetings and organized tasks in Asana",
-      "Spearheaded social media and email marketing, driving a 30% rise in engagement",
+      "Built and shipped a responsive marketing site for Blinkk.io with HTML, CSS, and JavaScript, applying UI/UX and responsive web design practices",
+      "Designed and developed a multi-page WordPress book review and e-commerce blog for a paid client, designed their full brand identity, and optimized for SEO (romanceloverblog.com)",
+      "Replaced a legacy manual tracking system with Asana and led weekly strategic planning with the owner, improving task visibility across client work",
     ],
   },
   {
@@ -73,82 +64,117 @@ const EXPERIENCE = [
     company: "Markful",
     url: "https://www.markful.com/",
     period: "Dec 2022 - Jun 2024",
-    color: "#534AB7",
-    dot: "#CFC9FF",
+    color: "#D85A30",
+    dot: "#F0997B",
     bullets: [
-      "Developed comprehensive test plans and strategies, achieving a 94% reduction in post-release issues",
-      "Spearheaded QA team training and new testing systems, increasing efficiency by 95%",
-      "Managed collaboration with DevOps to achieve 98% successful live releases",
-      "Mentored junior QA engineers on best practices and testing methodologies",
+      "Promoted to Lead within first 6 months",
+      "Developed and owned the testing strategy for a customer-facing e-commerce platform, writing test plans, test cases, and scripts that caught defects before release, utilizing TestRail, BrowserStack, and spreadsheet to track testing efforts",
+      "Partnered with the Senior Developer/DevOps lead on release validation, keeping live deployments stable with minimal production disruption",
+      "Trained and mentored QA team members; built the testing systems and training materials the team worked from",
+      "Translated requirements between technical and non-technical stakeholders to keep product delivery on track",
+      "Executed manual test cases, tracked defects, and ran regression testing for internal and customer-facing web applications",
+      "Led testing for new cart and checkout pages through to successful deployment and a significantly improved user checkout experience",
     ],
   },
   {
-    role: "Web Designer & Social Media Manager",
+    role: "Web Designer",
     company: "Fearless Influence",
     url: "https://fearlessinfluence.com/",
     period: "Feb 2022 - Sep 2022",
     color: "#1D9E75",
     dot: "#5DCAA5",
     bullets: [
-      "Built dynamic WordPress/Elementor sites for 4 organizations, driving 300% traffic growth",
-      "Managed social media for 3-4 clients, increasing engagement by an average of 120%",
+      "Built dynamic websites for 4 organizations using WordPress, Elementor, and Divi, replacing outdated sites with responsive, search-friendly builds",
+      "Managed social media for 3-4 clients, growing cross-platform engagement and optimizing YouTube SEO",
     ],
   },
   {
-    role: "Office Manager, EA & Bookkeeper",
+    role: "Help Desk Technician 1",
+    company: "William Jessup University",
+    url: "https://jessup.edu/",
+    period: "Jun 2020 - Dec 2020",
+    color: "#534AB7",
+    dot: "#534AB7",
+    bullets: [
+      "Provided IT support for 1,700 students and 150 staff, handling roughly 40 tickets per week",
+      "Managed Active Directory user accounts; installed and configured workstations and maintained university WordPress landing pages",
+    ],
+  },
+  {
+    role: "Executive Assistant and Bookkeeper",
     company: "All Points Welding",
     period: "Sep 2014 - Sep 2017",
     color: "#D85A30",
     dot: "#F5C4B3",
     bullets: [
-      "Designed and implemented a new software administration system, increasing efficiency 200%",
-      "Automated invoice and payroll processing, saving the company 100+ hours per month",
-      "Built and launched a multi-page website, growing inbound leads from 0 to 15/week",
+      "Replaced legacy manual systems with digital administration platform, cutting recurring data-entry work and reconciliation errors",
+      "Automated invoice and payroll processing, eliminating hours of manual work each month",
+      "Launched the company website and social media presence, generating the first digital inbound lead flow",
+      "Managed QuickBooks records, bank reconciliations, payroll, tax prep collaboration, and office IT infrastructure",
     ],
   },
 ];
 
 const PROJECTS = [
   {
-    name: "To-Do List + Local Storage",
-    desc: "A third iteration of a to-do list app with full CRUD — add, edit, update, and delete tasks — with persistence via localStorage.",
-    tech: ["JavaScript", "CSS", "localStorage"],
-    link: "https://github.com/audreyclarkdev/To-Do-List-and-local-storage",
+    name: "DogDex",
+    desc: "A mobile-first full-stack web appplication for dog lovers who want to discover, track, and learn about dog breeds they encounter in real life. Inspired by bird-watching and pokemon's pokedex.",
+    tech: [
+      "React",
+      "React Router",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "RESTful API",
+      "Cloudinary",
+      "Clerk",
+      "Netlify",
+      "Vercel",
+    ],
+    repo: "https://github.com/audreyclarkdev/dogdex",
+    live: "https://dogdex.live/",
+    image: "",
+    imageAlt: "",
     accent: "#534AB7",
   },
   {
-    name: "Quote Generator 9000",
-    desc: "A random quote generator app built with vanilla JavaScript and CSS — clean UI, instant inspiration on demand.",
-    tech: ["JavaScript", "CSS"],
-    link: "https://github.com/audreyclarkdev/quote-generator-9000",
+    name: "Giphy Searcher App",
+    desc: "A responsive React app that lets you browse trending GIFs and search for any topic using the Giphy API.",
+    tech: ["React", "React Hooks", "CSS", "Netlify"],
+    repo: "https://github.com/audreyclarkdev/Giphy-App/tree/main",
+    live: "https://audrey-giphy-app.netlify.app/",
+    image: "",
+    imageAlt: "",
+    accent: "#1B5FA8",
+  },
+  {
+    name: "Dog Facts",
+    desc: "An interactive website that shares random dog facts.",
+    tech: ["JavaScript", "RESTful API", "GitHub Pages"],
+    repo: "https://github.com/audreyclarkdev/dog-facts",
+    live: "https://audreyclarkdev.github.io/dog-facts/",
+    image: "",
+    imageAlt: "",
+    accent: "#0B7377",
+  },
+  {
+    name: "FEQ Dictionary App",
+    desc: "An open-source group project with the Front End Queens community featuring word search plus font and light/dark theme switching. I built the light/dark mode toggle and handled deployment.",
+    tech: ["CSS", "HTML", "JavaScript", "Open Source"],
+    repo: "https://github.com/audreyclarkdev/feq_dictionary_app",
+    live: "https://feq-dictionary.netlify.app/",
+    image: "",
+    imageAlt: "",
     accent: "#D85A30",
   },
   {
     name: "Contact List - Next.js",
     desc: "A contact list evaluation project built in Next.js, practicing component architecture, routing, and state management.",
     tech: ["Next.js", "JavaScript", "React"],
-    link: "https://github.com/audreyclarkdev/contact-list-nextjs",
-    accent: "#1D9E75",
-  },
-  {
-    name: "Weather Project Eval",
-    desc: "A weather app evaluation pulling live data from a weather API — practicing async JavaScript and DOM manipulation.",
-    tech: ["JavaScript", "API", "CSS"],
-    link: "https://github.com/audreyclarkdev/weather-project-eval",
-    accent: "#534AB7",
-  },
-  {
-    name: "FEQ Dictionary App",
-    desc: "Open-source contribution to the Front End Queens community — a dictionary web app built collaboratively.",
-    tech: ["CSS", "JavaScript", "Open Source"],
-    link: "https://github.com/audreyclarkdev/feq_dictionary_app",
-    accent: "#D85A30",
-  },
-  {
-    name: "Robofriends",
-    desc: "A React app that renders a searchable, filterable grid of robot avatars — a classic learning project demonstrating React fundamentals.",
-    tech: ["React", "JavaScript", "CSS"],
-    link: "https://github.com/audreyclarkdev/robofriends",
+    repo: "https://github.com/audreyclarkdev/contact-list-nextjs",
+    live: "",
+    image: "",
+    imageAlt: "",
     accent: "#1D9E75",
   },
 ];
@@ -158,37 +184,38 @@ const EDUCATION = [
     school: "Austin Community College",
     degree: "Software Developer Bootcamp",
     field: "Computer Software Engineering",
-    period: "Feb 2026 - Sep 2026",
+    period: "Mar 2026 - Sep 2026",
     color: "#534AB7",
-  },
-  {
-    school: "Parsity",
-    degree: "Software Engineering",
-    field: "Computer Software Engineering",
-    period: "Jan 2024 - Jan 2025",
-    color: "#D85A30",
-  },
-  {
-    school: "Zero To Mastery Academy",
-    degree: "Software Development",
-    field: "Web Development",
-    period: "Sep 2022 - Jun 2024",
-    color: "#1D9E75",
   },
   {
     school: "Bethel School of Technology",
     degree: "Full Stack Certificate",
     field: "Java, SpringBoot, React, JavaScript",
     period: "Jan 2021 - Sep 2021",
-    color: "#185FA5",
+    color: "#1D9E75",
   },
   {
     school: "William Jessup University",
     degree: "Bachelor of Arts",
     field: "Intercultural Studies",
+    honor: "Summa Cum Laude",
     period: "Jan 2012 - Dec 2014",
-    color: "#3C3489",
+    color: "#185FA5",
   },
+  {
+    school: "Folsom Lake College",
+    degree: "Associates of Arts",
+    field: "Math and Science, with an emphasis in Computer Science",
+    honor: "Highest Honors",
+    period: "Aug 2009 - May 2011",
+    color: "#4FD1D1",
+  },
+];
+
+// The Education section shows two columns, each with its own small header
+const EDUCATION_GROUPS = [
+  { title: "Programming Bootcamps", items: EDUCATION.slice(0, 2) },
+  { title: "Degrees", items: EDUCATION.slice(2) },
 ];
 
 export default function Portfolio() {
@@ -335,7 +362,9 @@ export default function Portfolio() {
               aria-checked={theme === "light"}
               aria-label="Light mode"
               className="theme-toggle"
-              onClick={() => setTheme((t) => (t === "light" ? "dark" : "light"))}>
+              onClick={() =>
+                setTheme((t) => (t === "light" ? "dark" : "light"))
+              }>
               <span className="theme-toggle-icon" aria-hidden="true">
                 ☾
               </span>
@@ -409,8 +438,14 @@ export default function Portfolio() {
           <p className="hero-body">
             I spent 7 years working alongside nonprofits around the world before
             trading passport stamps for pull requests. That journey gave me
-            something most devs don't have: the communication skills, empathy, and
-            systems-thinking to bridge the gap between people and products.
+            something most devs don't have: the communication skills, empathy,
+            and systems-thinking to bridge the gap between people and products.
+          </p>
+          <p className="hero-body">
+            Outside of code, I'm working on my strength and conditioning with my
+            gym community, playing cozy games with a psychological thriller
+            audiobook in my ears, or hanging out with my husband and our German
+            Shepherd dawghter, Emma. 🐾
           </p>
           <div className="btn-row">
             <button className="grad-btn" onClick={() => scrollTo("Projects")}>
@@ -435,22 +470,6 @@ export default function Portfolio() {
               className="outline-btn">
               GitHub
             </a>
-          </div>
-          <div className="stats-grid">
-            {[
-              {
-                num: "94%",
-                label: "reduction in post-release issues at Markful",
-              },
-              { num: "98%", label: "successful live releases managed" },
-              { num: "30+", label: "GitHub repos & counting" },
-              { num: "7yrs", label: "of global work before tech" },
-            ].map((s) => (
-              <div key={s.num} className="stat-card">
-                <div className="stat-num">{s.num}</div>
-                <div className="stat-label">{s.label}</div>
-              </div>
-            ))}
           </div>
         </section>
 
@@ -501,7 +520,7 @@ export default function Portfolio() {
             sectionRefs.current["Experience"] = el;
           }}
           className="section">
-          <p className="section-eyebrow" style={{ "--c": "#534AB7" }}>
+          <p className="section-eyebrow" style={{ "--c": "#2F80D8" }}>
             Where I've been
           </p>
           <h2 id="experience-title" className="section-title">
@@ -561,36 +580,71 @@ export default function Portfolio() {
             sectionRefs.current["Projects"] = el;
           }}
           className="section">
-          <p className="section-eyebrow" style={{ "--c": "#1D9E75" }}>
+          <p className="section-eyebrow" style={{ "--c": "#14A3A8" }}>
             What I've built
           </p>
           <h2 id="projects-title" className="section-title">
             Projects
           </h2>
           <div className="proj-grid">
-            {PROJECTS.map((p) => (
-              <a
-                key={p.name}
-                href={p.link}
-                target="_blank"
-                rel="noreferrer"
-                className="proj-card"
+            {PROJECTS.map((p, i) => (
+              // Each row pairs a project card with its image; every other
+              // row is flipped so the image sits on the left
+              <div
+                key={p.name + i}
+                className={`proj-row${i % 2 === 1 ? " flipped" : ""}`}
                 style={{ "--card-accent": p.accent }}>
-                <div className="proj-header">
-                  <span className="proj-name">{p.name}</span>
-                  <span className="proj-arrow" aria-hidden="true">
-                    ↗
-                  </span>
-                </div>
-                <p className="proj-desc">{p.desc}</p>
-                <div className="proj-tags">
-                  {p.tech.map((t) => (
-                    <span key={t} className="tech-tag">
-                      {t}
+                <article className="proj-card">
+                  <h3 className="proj-name">{p.name}</h3>
+                  <p className="proj-desc">{p.desc}</p>
+                  <div className="proj-tags">
+                    {p.tech.map((t) => (
+                      <span key={t} className="tech-tag">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  {/* Each button only appears once its address is filled in */}
+                  {(p.repo || p.live) && (
+                    <div className="proj-links">
+                      {p.repo && (
+                        <a
+                          href={p.repo}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${p.name}: GitHub repo`}
+                          className="proj-btn proj-btn-repo">
+                          GitHub repo <span aria-hidden="true">↗</span>
+                        </a>
+                      )}
+                      {p.live && (
+                        <a
+                          href={p.live}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`${p.name}: live site`}
+                          className="proj-btn proj-btn-live">
+                          Live site <span aria-hidden="true">↗</span>
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </article>
+                {/* Shows a placeholder until the project's image is filled in */}
+                <div className="proj-media">
+                  {p.image ? (
+                    <img
+                      src={p.image}
+                      alt={p.imageAlt || `Screenshot of ${p.name}`}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span className="proj-media-empty" aria-hidden="true">
+                      Preview coming soon
                     </span>
-                  ))}
+                  )}
                 </div>
-              </a>
+              </div>
             ))}
           </div>
           <div className="proj-footer">
@@ -622,17 +676,23 @@ export default function Portfolio() {
             Education
           </h2>
           <div className="edu-grid">
-            {EDUCATION.map((e) => (
-              <div
-                key={e.school}
-                className="edu-card"
-                style={{ borderLeft: `3px solid ${e.color}` }}>
-                <div className="edu-school">{e.school}</div>
-                <div className="edu-degree" style={{ "--c": e.color }}>
-                  {e.degree}
-                </div>
-                <div className="edu-field">{e.field}</div>
-                <div className="edu-period">{e.period}</div>
+            {EDUCATION_GROUPS.map((group) => (
+              <div key={group.title} className="edu-column">
+                <h3 className="edu-group-title">{group.title}</h3>
+                {group.items.map((e) => (
+                  <div
+                    key={e.school}
+                    className="edu-card"
+                    style={{ borderLeft: `3px solid ${e.color}` }}>
+                    <div className="edu-school">{e.school}</div>
+                    <div className="edu-degree" style={{ "--c": e.color }}>
+                      {e.degree}
+                    </div>
+                    <div className="edu-field">{e.field}</div>
+                    {e.honor && <div className="edu-honor">{e.honor}</div>}
+                    <div className="edu-period">{e.period}</div>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
