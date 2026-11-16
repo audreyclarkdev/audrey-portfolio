@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./App.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const EMAIL = "audreyclarkdev@gmail.com";
 
@@ -332,492 +333,496 @@ export default function Portfolio() {
   ));
 
   return (
-    <div className="portfolio">
-      <a href="#main" className="skip-link">
-        Skip to main content
-      </a>
+    <>
+      <Analytics />
+      <div className="portfolio">
+        <a href="#main" className="skip-link">
+          Skip to main content
+        </a>
 
-      {/* ── NAV ── */}
-      <header className={`nav${scrolled || menuOpen ? " scrolled" : ""}`}>
-        <div className="nav-inner">
-          <button
-            className="logo-btn"
-            aria-label="Audrey Clark, back to top"
-            onClick={scrollToTop}>
-            <img
-              className="logo-mark"
-              src="/ac-mark.svg"
-              alt=""
-              width="34"
-              height="34"
-            />
-          </button>
-          <nav className="desktop-nav" aria-label="Main">
-            {navLinkButtons}
-          </nav>
-          <div className="nav-actions">
+        {/* ── NAV ── */}
+        <header className={`nav${scrolled || menuOpen ? " scrolled" : ""}`}>
+          <div className="nav-inner">
             <button
-              type="button"
-              role="switch"
-              aria-checked={theme === "light"}
-              aria-label="Light mode"
-              className="theme-toggle"
-              onClick={() =>
-                setTheme((t) => (t === "light" ? "dark" : "light"))
-              }>
-              <span className="theme-toggle-icon" aria-hidden="true">
-                ☾
-              </span>
-              <span className="theme-toggle-track" aria-hidden="true">
-                <span className="theme-toggle-thumb" />
-              </span>
-              <span className="theme-toggle-icon" aria-hidden="true">
-                ☀
-              </span>
+              className="logo-btn"
+              aria-label="Audrey Clark, back to top"
+              onClick={scrollToTop}>
+              <img
+                className="logo-mark"
+                src="/ac-mark.svg"
+                alt=""
+                width="34"
+                height="34"
+              />
             </button>
-            {RESUME_URL && (
-              <a
-                href={RESUME_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="outline-btn nav-resume-btn">
-                Resume
+            <nav className="desktop-nav" aria-label="Main">
+              {navLinkButtons}
+            </nav>
+            <div className="nav-actions">
+              <button
+                type="button"
+                role="switch"
+                aria-checked={theme === "light"}
+                aria-label="Light mode"
+                className="theme-toggle"
+                onClick={() =>
+                  setTheme((t) => (t === "light" ? "dark" : "light"))
+                }>
+                <span className="theme-toggle-icon" aria-hidden="true">
+                  ☾
+                </span>
+                <span className="theme-toggle-track" aria-hidden="true">
+                  <span className="theme-toggle-thumb" />
+                </span>
+                <span className="theme-toggle-icon" aria-hidden="true">
+                  ☀
+                </span>
+              </button>
+              {RESUME_URL && (
+                <a
+                  href={RESUME_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="outline-btn nav-resume-btn">
+                  Resume
+                </a>
+              )}
+              <a href={`mailto:${EMAIL}`} className="grad-btn hire-btn">
+                Hire me
               </a>
-            )}
-            <a href={`mailto:${EMAIL}`} className="grad-btn hire-btn">
-              Hire me
-            </a>
-            <button
-              ref={menuButtonRef}
-              className="menu-btn"
-              aria-expanded={menuOpen}
-              aria-controls="mobile-nav"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              onClick={() => setMenuOpen((o) => !o)}>
-              <span className="menu-icon" aria-hidden="true">
-                {menuOpen ? "✕" : "☰"}
-              </span>
-            </button>
+              <button
+                ref={menuButtonRef}
+                className="menu-btn"
+                aria-expanded={menuOpen}
+                aria-controls="mobile-nav"
+                aria-label={menuOpen ? "Close menu" : "Open menu"}
+                onClick={() => setMenuOpen((o) => !o)}>
+                <span className="menu-icon" aria-hidden="true">
+                  {menuOpen ? "✕" : "☰"}
+                </span>
+              </button>
+            </div>
           </div>
-        </div>
-        {menuOpen && (
-          <nav id="mobile-nav" className="mobile-nav" aria-label="Main">
-            {navLinkButtons}
-            {RESUME_URL && (
-              <a
-                href={RESUME_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="nav-link">
-                Resume
-              </a>
-            )}
-          </nav>
-        )}
-      </header>
+          {menuOpen && (
+            <nav id="mobile-nav" className="mobile-nav" aria-label="Main">
+              {navLinkButtons}
+              {RESUME_URL && (
+                <a
+                  href={RESUME_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="nav-link">
+                  Resume
+                </a>
+              )}
+            </nav>
+          )}
+        </header>
 
-      <main id="main" tabIndex={-1}>
-        {/* ── HERO ── */}
-        <section
-          id="about"
-          tabIndex={-1}
-          aria-label="About"
-          ref={(el) => {
-            sectionRefs.current["About"] = el;
-          }}
-          className="hero">
-          <p className="section-eyebrow" style={{ "--c": "#534AB7" }}>
-            Software Developer · QA Engineer · Builder
-          </p>
-          <h1 className="shimmer-text hero-name">Audrey Clark</h1>
-          <p className="hero-sub">
-            Former humanitarian, executive admin, and QA lead — now a full-stack
-            developer powered by coffee, dog cuddles, and a genuine belief that
-            technology should make people's lives better.
-          </p>
-          <p className="hero-body">
-            I spent 7 years working alongside nonprofits around the world before
-            trading passport stamps for pull requests. That journey gave me
-            something most devs don't have: the communication skills, empathy,
-            and systems-thinking to bridge the gap between people and products.
-          </p>
-          <p className="hero-body">
-            Outside of code, I'm working on my strength and conditioning with my
-            gym community, playing cozy games with a psychological thriller
-            audiobook in my ears, or hanging out with my husband and our German
-            Shepherd dawghter, Emma. 🐾
-          </p>
-          <div className="btn-row">
-            <button className="grad-btn" onClick={() => scrollTo("Projects")}>
-              See my work <span aria-hidden="true">↓</span>
-            </button>
-            <a href={`mailto:${EMAIL}`} className="outline-btn">
-              Get in touch
-            </a>
-            {RESUME_URL && (
+        <main id="main" tabIndex={-1}>
+          {/* ── HERO ── */}
+          <section
+            id="about"
+            tabIndex={-1}
+            aria-label="About"
+            ref={(el) => {
+              sectionRefs.current["About"] = el;
+            }}
+            className="hero">
+            <p className="section-eyebrow" style={{ "--c": "#534AB7" }}>
+              Software Developer · QA Engineer · Builder
+            </p>
+            <h1 className="shimmer-text hero-name">Audrey Clark</h1>
+            <p className="hero-sub">
+              Former humanitarian, executive admin, and QA lead — now a
+              full-stack developer powered by coffee, dog cuddles, and a genuine
+              belief that technology should make people's lives better.
+            </p>
+            <p className="hero-body">
+              I spent 7 years working alongside nonprofits around the world
+              before trading passport stamps for pull requests. That journey
+              gave me something most devs don't have: the communication skills,
+              empathy, and systems-thinking to bridge the gap between people and
+              products.
+            </p>
+            <p className="hero-body">
+              Outside of code, I'm working on my strength and conditioning with
+              my gym community, playing cozy games with a psychological thriller
+              audiobook in my ears, or hanging out with my husband and our
+              German Shepherd dawghter, Emma. 🐾
+            </p>
+            <div className="btn-row">
+              <button className="grad-btn" onClick={() => scrollTo("Projects")}>
+                See my work <span aria-hidden="true">↓</span>
+              </button>
+              <a href={`mailto:${EMAIL}`} className="outline-btn">
+                Get in touch
+              </a>
+              {RESUME_URL && (
+                <a
+                  href={RESUME_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="outline-btn">
+                  Resume
+                </a>
+              )}
               <a
-                href={RESUME_URL}
+                href="https://github.com/audreyclarkdev"
                 target="_blank"
                 rel="noreferrer"
                 className="outline-btn">
-                Resume
+                GitHub
               </a>
-            )}
-            <a
-              href="https://github.com/audreyclarkdev"
-              target="_blank"
-              rel="noreferrer"
-              className="outline-btn">
-              GitHub
-            </a>
-          </div>
-        </section>
+            </div>
+          </section>
 
-        <div className="divider" />
+          <div className="divider" />
 
-        {/* ── SKILLS ── */}
-        <section
-          id="skills"
-          tabIndex={-1}
-          aria-labelledby="skills-title"
-          ref={(el) => {
-            sectionRefs.current["Skills"] = el;
-          }}
-          className="section">
-          <p className="section-eyebrow" style={{ "--c": "#D85A30" }}>
-            What I work with
-          </p>
-          <h2 id="skills-title" className="section-title">
-            Skills & Technologies
-          </h2>
-          <div className="chips">
-            {SKILLS.map((skill, i) => {
-              // Spread the chips evenly around the color wheel, red to pink
-              const hue = Math.round((i / SKILLS.length) * 330);
-              return (
-                <span
-                  key={skill}
-                  className="skill-chip"
-                  style={{
-                    background: `hsl(${hue} 85% 90%)`,
-                    color: `hsl(${hue} 70% 24%)`,
-                  }}>
-                  {skill}
-                </span>
-              );
-            })}
-          </div>
-        </section>
-
-        <div className="divider" />
-
-        {/* ── EXPERIENCE ── */}
-        <section
-          id="experience"
-          tabIndex={-1}
-          aria-labelledby="experience-title"
-          ref={(el) => {
-            sectionRefs.current["Experience"] = el;
-          }}
-          className="section">
-          <p className="section-eyebrow" style={{ "--c": "#2F80D8" }}>
-            Where I've been
-          </p>
-          <h2 id="experience-title" className="section-title">
-            Work Experience
-          </h2>
-          <div className="exp-list">
-            {EXPERIENCE.map((exp) => (
-              <div key={exp.role + exp.company} className="card">
-                <div className="exp-inner">
-                  <div
-                    className="exp-dot"
-                    style={{ background: exp.dot }}
-                    aria-hidden="true"
-                  />
-                  <div className="exp-content">
-                    <div className="exp-header">
-                      <div>
-                        <span className="exp-role">{exp.role}</span>
-                        <span
-                          className="exp-company"
-                          style={{ "--c": exp.color }}>
-                          {exp.url ? (
-                            <a
-                              href={exp.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              style={{ color: "inherit" }}>
-                              {exp.company}
-                            </a>
-                          ) : (
-                            exp.company
-                          )}
-                        </span>
-                      </div>
-                      <span className="exp-period">{exp.period}</span>
-                    </div>
-                    <ul className="exp-bullets">
-                      {exp.bullets.map((b, i) => (
-                        <li key={i}>{b}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <div className="divider" />
-
-        {/* ── PROJECTS ── */}
-        <section
-          id="projects"
-          tabIndex={-1}
-          aria-labelledby="projects-title"
-          ref={(el) => {
-            sectionRefs.current["Projects"] = el;
-          }}
-          className="section">
-          <p className="section-eyebrow" style={{ "--c": "#14A3A8" }}>
-            What I've built
-          </p>
-          <h2 id="projects-title" className="section-title">
-            Projects
-          </h2>
-          <div className="proj-grid">
-            {PROJECTS.map((p, i) => (
-              // Each row pairs a project card with its image; every other
-              // row is flipped so the image sits on the left
-              <div
-                key={p.name + i}
-                className={`proj-row${i % 2 === 1 ? " flipped" : ""}`}
-                style={{ "--card-accent": p.accent }}>
-                <article className="proj-card">
-                  <h3 className="proj-name">{p.name}</h3>
-                  <p className="proj-desc">{p.desc}</p>
-                  <div className="proj-tags">
-                    {p.tech.map((t) => (
-                      <span key={t} className="tech-tag">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                  {/* Each button only appears once its address is filled in */}
-                  {(p.repo || p.live) && (
-                    <div className="proj-links">
-                      {p.repo && (
-                        <a
-                          href={p.repo}
-                          target="_blank"
-                          rel="noreferrer"
-                          aria-label={`${p.name}: GitHub repo`}
-                          className="proj-btn proj-btn-repo">
-                          GitHub repo <span aria-hidden="true">↗</span>
-                        </a>
-                      )}
-                      {p.live && (
-                        <a
-                          href={p.live}
-                          target="_blank"
-                          rel="noreferrer"
-                          aria-label={`${p.name}: live site`}
-                          className="proj-btn proj-btn-live">
-                          Live site <span aria-hidden="true">↗</span>
-                        </a>
-                      )}
-                    </div>
-                  )}
-                </article>
-                {/* Shows a placeholder until the project's image is filled in */}
-                <div className="proj-media">
-                  {p.image ? (
-                    <img
-                      src={p.image}
-                      alt={p.imageAlt || `Screenshot of ${p.name}`}
-                      loading="lazy"
-                    />
-                  ) : (
-                    <span className="proj-media-empty" aria-hidden="true">
-                      Preview coming soon
-                    </span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="proj-footer">
-            <a
-              href="https://github.com/audreyclarkdev"
-              target="_blank"
-              rel="noreferrer"
-              className="outline-btn">
-              View all my repos on GitHub <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </section>
-
-        <div className="divider" />
-
-        {/* ── EDUCATION ── */}
-        <section
-          id="education"
-          tabIndex={-1}
-          aria-labelledby="education-title"
-          ref={(el) => {
-            sectionRefs.current["Education"] = el;
-          }}
-          className="section">
-          <p className="section-eyebrow" style={{ "--c": "#D85A30" }}>
-            Always learning
-          </p>
-          <h2 id="education-title" className="section-title">
-            Education
-          </h2>
-          <div className="edu-grid">
-            {EDUCATION_GROUPS.map((group) => (
-              <div key={group.title} className="edu-column">
-                <h3 className="edu-group-title">{group.title}</h3>
-                {group.items.map((e) => (
-                  <div
-                    key={e.school}
-                    className="edu-card"
-                    style={{ borderLeft: `3px solid ${e.color}` }}>
-                    <div className="edu-school">{e.school}</div>
-                    <div className="edu-degree" style={{ "--c": e.color }}>
-                      {e.degree}
-                    </div>
-                    <div className="edu-field">{e.field}</div>
-                    {e.honor && <div className="edu-honor">{e.honor}</div>}
-                    <div className="edu-period">{e.period}</div>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <div className="divider" />
-
-        {/* ── CONTACT ── */}
-        <section
-          id="contact"
-          tabIndex={-1}
-          aria-labelledby="contact-title"
-          ref={(el) => {
-            sectionRefs.current["Contact"] = el;
-          }}
-          className="contact-section">
-          <p className="section-eyebrow" style={{ "--c": "#1D9E75" }}>
-            Let's build something
-          </p>
-          <h2 id="contact-title" className="section-title">
-            Get in Touch
-          </h2>
-          <p className="contact-body">
-            I'm actively looking for frontend or fullstack developer roles —
-            especially at companies building things that matter. Say hi, send a
-            meme, or just tell me about your team.
-          </p>
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <label htmlFor="contact-name" className="sr-only">
-              Your name
-            </label>
-            <input
-              id="contact-name"
-              name="name"
-              className="contact-input"
-              type="text"
-              autoComplete="name"
-              placeholder="Your name"
-              required
-            />
-            <label htmlFor="contact-email" className="sr-only">
-              Your email
-            </label>
-            <input
-              id="contact-email"
-              name="email"
-              className="contact-input"
-              type="email"
-              autoComplete="email"
-              placeholder="your@email.com"
-              required
-            />
-            <label htmlFor="contact-message" className="sr-only">
-              Message
-            </label>
-            <textarea
-              id="contact-message"
-              name="message"
-              className="contact-input"
-              rows={5}
-              placeholder="What's on your mind?"
-              required
-            />
-            <button
-              type="submit"
-              className="grad-btn send-btn"
-              disabled={formStatus === "sending"}>
-              {formStatus === "sending" ? "Sending…" : "Send message"}
-            </button>
-            <p className="form-status" role="status">
-              {formStatus === "sent" &&
-                "Thanks! Your message was sent — I'll get back to you soon."}
-              {formStatus === "error" && (
-                <>
-                  Sorry, something went wrong. Please email me directly at{" "}
-                  <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
-                </>
-              )}
+          {/* ── SKILLS ── */}
+          <section
+            id="skills"
+            tabIndex={-1}
+            aria-labelledby="skills-title"
+            ref={(el) => {
+              sectionRefs.current["Skills"] = el;
+            }}
+            className="section">
+            <p className="section-eyebrow" style={{ "--c": "#D85A30" }}>
+              What I work with
             </p>
-          </form>
-          <div className="social-links">
-            {[
-              { label: "GitHub", url: "https://github.com/audreyclarkdev" },
-              {
-                label: "LinkedIn",
-                url: "https://www.linkedin.com/in/audrey-clark-dev",
-              },
-              { label: "Email", url: `mailto:${EMAIL}`, hoverLabel: EMAIL },
-            ].map((l) =>
-              l.hoverLabel ? (
-                // Shows the address on hover or keyboard focus, so visitors
-                // without an email app can still copy it
-                <a
-                  key={l.label}
-                  href={l.url}
-                  aria-label={`${l.label}: ${l.hoverLabel}`}
-                  className="social-link">
-                  <span className="social-label" aria-hidden="true">
-                    {l.label}
+            <h2 id="skills-title" className="section-title">
+              Skills & Technologies
+            </h2>
+            <div className="chips">
+              {SKILLS.map((skill, i) => {
+                // Spread the chips evenly around the color wheel, red to pink
+                const hue = Math.round((i / SKILLS.length) * 330);
+                return (
+                  <span
+                    key={skill}
+                    className="skill-chip"
+                    style={{
+                      background: `hsl(${hue} 85% 90%)`,
+                      color: `hsl(${hue} 70% 24%)`,
+                    }}>
+                    {skill}
                   </span>
-                  <span className="social-hover-label" aria-hidden="true">
-                    {l.hoverLabel}
-                  </span>
-                </a>
-              ) : (
-                <a
-                  key={l.label}
-                  href={l.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="social-link">
-                  {l.label}
-                </a>
-              ),
-            )}
-          </div>
-          {/* Phones and tablets can't hover, so show the address there */}
-          <p className="contact-email">{EMAIL}</p>
-        </section>
-      </main>
+                );
+              })}
+            </div>
+          </section>
 
-      {/* ── FOOTER ── */}
-      <footer className="footer">
-        <span>Built with React · Audrey Clark © 2026</span>
-      </footer>
-    </div>
+          <div className="divider" />
+
+          {/* ── EXPERIENCE ── */}
+          <section
+            id="experience"
+            tabIndex={-1}
+            aria-labelledby="experience-title"
+            ref={(el) => {
+              sectionRefs.current["Experience"] = el;
+            }}
+            className="section">
+            <p className="section-eyebrow" style={{ "--c": "#2F80D8" }}>
+              Where I've been
+            </p>
+            <h2 id="experience-title" className="section-title">
+              Work Experience
+            </h2>
+            <div className="exp-list">
+              {EXPERIENCE.map((exp) => (
+                <div key={exp.role + exp.company} className="card">
+                  <div className="exp-inner">
+                    <div
+                      className="exp-dot"
+                      style={{ background: exp.dot }}
+                      aria-hidden="true"
+                    />
+                    <div className="exp-content">
+                      <div className="exp-header">
+                        <div>
+                          <span className="exp-role">{exp.role}</span>
+                          <span
+                            className="exp-company"
+                            style={{ "--c": exp.color }}>
+                            {exp.url ? (
+                              <a
+                                href={exp.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: "inherit" }}>
+                                {exp.company}
+                              </a>
+                            ) : (
+                              exp.company
+                            )}
+                          </span>
+                        </div>
+                        <span className="exp-period">{exp.period}</span>
+                      </div>
+                      <ul className="exp-bullets">
+                        {exp.bullets.map((b, i) => (
+                          <li key={i}>{b}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <div className="divider" />
+
+          {/* ── PROJECTS ── */}
+          <section
+            id="projects"
+            tabIndex={-1}
+            aria-labelledby="projects-title"
+            ref={(el) => {
+              sectionRefs.current["Projects"] = el;
+            }}
+            className="section">
+            <p className="section-eyebrow" style={{ "--c": "#14A3A8" }}>
+              What I've built
+            </p>
+            <h2 id="projects-title" className="section-title">
+              Projects
+            </h2>
+            <div className="proj-grid">
+              {PROJECTS.map((p, i) => (
+                // Each row pairs a project card with its image; every other
+                // row is flipped so the image sits on the left
+                <div
+                  key={p.name + i}
+                  className={`proj-row${i % 2 === 1 ? " flipped" : ""}`}
+                  style={{ "--card-accent": p.accent }}>
+                  <article className="proj-card">
+                    <h3 className="proj-name">{p.name}</h3>
+                    <p className="proj-desc">{p.desc}</p>
+                    <div className="proj-tags">
+                      {p.tech.map((t) => (
+                        <span key={t} className="tech-tag">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    {/* Each button only appears once its address is filled in */}
+                    {(p.repo || p.live) && (
+                      <div className="proj-links">
+                        {p.repo && (
+                          <a
+                            href={p.repo}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`${p.name}: GitHub repo`}
+                            className="proj-btn proj-btn-repo">
+                            GitHub repo <span aria-hidden="true">↗</span>
+                          </a>
+                        )}
+                        {p.live && (
+                          <a
+                            href={p.live}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`${p.name}: live site`}
+                            className="proj-btn proj-btn-live">
+                            Live site <span aria-hidden="true">↗</span>
+                          </a>
+                        )}
+                      </div>
+                    )}
+                  </article>
+                  {/* Shows a placeholder until the project's image is filled in */}
+                  <div className="proj-media">
+                    {p.image ? (
+                      <img
+                        src={p.image}
+                        alt={p.imageAlt || `Screenshot of ${p.name}`}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span className="proj-media-empty" aria-hidden="true">
+                        Preview coming soon
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="proj-footer">
+              <a
+                href="https://github.com/audreyclarkdev"
+                target="_blank"
+                rel="noreferrer"
+                className="outline-btn">
+                View all my repos on GitHub <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </section>
+
+          <div className="divider" />
+
+          {/* ── EDUCATION ── */}
+          <section
+            id="education"
+            tabIndex={-1}
+            aria-labelledby="education-title"
+            ref={(el) => {
+              sectionRefs.current["Education"] = el;
+            }}
+            className="section">
+            <p className="section-eyebrow" style={{ "--c": "#D85A30" }}>
+              Always learning
+            </p>
+            <h2 id="education-title" className="section-title">
+              Education
+            </h2>
+            <div className="edu-grid">
+              {EDUCATION_GROUPS.map((group) => (
+                <div key={group.title} className="edu-column">
+                  <h3 className="edu-group-title">{group.title}</h3>
+                  {group.items.map((e) => (
+                    <div
+                      key={e.school}
+                      className="edu-card"
+                      style={{ borderLeft: `3px solid ${e.color}` }}>
+                      <div className="edu-school">{e.school}</div>
+                      <div className="edu-degree" style={{ "--c": e.color }}>
+                        {e.degree}
+                      </div>
+                      <div className="edu-field">{e.field}</div>
+                      {e.honor && <div className="edu-honor">{e.honor}</div>}
+                      <div className="edu-period">{e.period}</div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <div className="divider" />
+
+          {/* ── CONTACT ── */}
+          <section
+            id="contact"
+            tabIndex={-1}
+            aria-labelledby="contact-title"
+            ref={(el) => {
+              sectionRefs.current["Contact"] = el;
+            }}
+            className="contact-section">
+            <p className="section-eyebrow" style={{ "--c": "#1D9E75" }}>
+              Let's build something
+            </p>
+            <h2 id="contact-title" className="section-title">
+              Get in Touch
+            </h2>
+            <p className="contact-body">
+              I'm actively looking for frontend or fullstack developer roles —
+              especially at companies building things that matter. Say hi, send
+              a meme, or just tell me about your team.
+            </p>
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <label htmlFor="contact-name" className="sr-only">
+                Your name
+              </label>
+              <input
+                id="contact-name"
+                name="name"
+                className="contact-input"
+                type="text"
+                autoComplete="name"
+                placeholder="Your name"
+                required
+              />
+              <label htmlFor="contact-email" className="sr-only">
+                Your email
+              </label>
+              <input
+                id="contact-email"
+                name="email"
+                className="contact-input"
+                type="email"
+                autoComplete="email"
+                placeholder="your@email.com"
+                required
+              />
+              <label htmlFor="contact-message" className="sr-only">
+                Message
+              </label>
+              <textarea
+                id="contact-message"
+                name="message"
+                className="contact-input"
+                rows={5}
+                placeholder="What's on your mind?"
+                required
+              />
+              <button
+                type="submit"
+                className="grad-btn send-btn"
+                disabled={formStatus === "sending"}>
+                {formStatus === "sending" ? "Sending…" : "Send message"}
+              </button>
+              <p className="form-status" role="status">
+                {formStatus === "sent" &&
+                  "Thanks! Your message was sent — I'll get back to you soon."}
+                {formStatus === "error" && (
+                  <>
+                    Sorry, something went wrong. Please email me directly at{" "}
+                    <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
+                  </>
+                )}
+              </p>
+            </form>
+            <div className="social-links">
+              {[
+                { label: "GitHub", url: "https://github.com/audreyclarkdev" },
+                {
+                  label: "LinkedIn",
+                  url: "https://www.linkedin.com/in/audrey-clark-dev",
+                },
+                { label: "Email", url: `mailto:${EMAIL}`, hoverLabel: EMAIL },
+              ].map((l) =>
+                l.hoverLabel ? (
+                  // Shows the address on hover or keyboard focus, so visitors
+                  // without an email app can still copy it
+                  <a
+                    key={l.label}
+                    href={l.url}
+                    aria-label={`${l.label}: ${l.hoverLabel}`}
+                    className="social-link">
+                    <span className="social-label" aria-hidden="true">
+                      {l.label}
+                    </span>
+                    <span className="social-hover-label" aria-hidden="true">
+                      {l.hoverLabel}
+                    </span>
+                  </a>
+                ) : (
+                  <a
+                    key={l.label}
+                    href={l.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="social-link">
+                    {l.label}
+                  </a>
+                ),
+              )}
+            </div>
+            {/* Phones and tablets can't hover, so show the address there */}
+            <p className="contact-email">{EMAIL}</p>
+          </section>
+        </main>
+
+        {/* ── FOOTER ── */}
+        <footer className="footer">
+          <span>Built with React · Audrey Clark © 2026</span>
+        </footer>
+      </div>
+    </>
   );
 }
